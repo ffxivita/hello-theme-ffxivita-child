@@ -36,3 +36,6 @@ jobs:
           file_pattern: assets/css/*.css
           push_options: '--force'
           create_branch: false
+          commit_user_name: Priscilla 🎀
+          commit_user_email: priscilla@ahd-creative.agency
+          commit_author: Priscilla 🎀 <priscilla@ahd-creative.agency>
