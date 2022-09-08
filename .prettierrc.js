@@ -1,3 +1,3 @@
 module.exports = {
-  ...require('@ahdcreative/prettier-config-ahd'),
+  ...require('prettier-config-ahd'),
 };
