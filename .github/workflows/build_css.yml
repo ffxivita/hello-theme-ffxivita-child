@@ -5,7 +5,7 @@ name: Node.js CI
 
 on:
   schedule:
-  - cron: "0 0 * * 1-5"
+    - cron: "0 0 * * 1-5"
   workflow_dispatch:
 
 jobs:
@@ -15,33 +15,27 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [ 16.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: gulp authors
-    - name: Commit files
-      id: commit
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "github-actions"
-        git add --all
-        if [-z "$(git status --porcelain)"]; then
-           echo "::set-output name=push::false"
-        else
-           git commit -m "Add changes" -a
-           echo "::set-output name=push::true"
-        fi
-      shell: bash
-    - name: Push changes
-      if: steps.commit.outputs.push == 'true'
-      uses: ad-m/github-push-action@main
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm ci
+      - run: gulp authors
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Add changes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
