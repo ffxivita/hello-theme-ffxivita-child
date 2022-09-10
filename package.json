@@ -65,14 +65,14 @@
     }
   },
   "devDependencies": {
-    "eslint": "^8.23.0",
+    "eslint": "8.23.0",
     "eslint-config-ahd": "1.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.7.1",
     "prettier-config-ahd": "1.0.1",
-    "typescript": "^4.8.2"
+    "typescript": "4.8.2"
   },
   "dependencies": {
     "browser-sync": "2.27.10",
@@ -84,9 +84,9 @@
     "gulp-sourcemaps": "3.0.0",
     "gulp-uglify": "3.0.2",
     "gulp-useref": "5.0.0",
-    "gulp4-run-sequence": "^1.0.1",
+    "gulp4-run-sequence": "1.0.1",
     "node-sass": "7.0.1",
-    "run-sequence": "^2.2.1",
+    "run-sequence": "2.2.1",
     "sass": "1.54.0"
   },
   "files": [
