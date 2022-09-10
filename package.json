@@ -66,7 +66,7 @@
   },
   "devDependencies": {
     "eslint": "8.23.0",
-    "eslint-config-ahd": "^1.0.0",
+    "eslint-config-ahd": "1.0.5",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "npm-run-all": "4.1.5",
