@@ -32,11 +32,5 @@ jobs:
         if: steps.cache-node_modules.outputs.cache-hit != 'true'
         run: npm ci --no-audit
 
-      - name: ESLint
-        run: npx --no-install eslint .
-
-      - name: Prettier
-        run: npx --no-install prettier --check .
-
       - name: Preflight
         run: npm run preflight
