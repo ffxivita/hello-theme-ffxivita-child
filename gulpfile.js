@@ -18,4 +18,31 @@ gulp.task('authors', function () {
         .pipe(gulp.dest('assets/css/'));
 });
 
-gulp.task('xivita', gulp.series('authors'));
+gulp.task('base', function () {
+    return gulp.src('src/base.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer(prefixerOptions))
+        .pipe(cssmin({zindex: false}))
+        .pipe(sourcemaps.write('.', undefined))
+        .pipe(gulp.dest('assets/css/'));
+});
+
+gulp.task('components', function () {
+    return gulp.src('src/components.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer(prefixerOptions))
+        .pipe(cssmin({zindex: false}))
+        .pipe(sourcemaps.write('.', undefined))
+        .pipe(gulp.dest('assets/css/'));
+});
+
+gulp.task('specials', function () {
+    return gulp.src('src/specials.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer(prefixerOptions))
+        .pipe(cssmin({zindex: false}))
+        .pipe(sourcemaps.write('.', undefined))
+        .pipe(gulp.dest('assets/css/'));
+});
+
+gulp.task('xivita', gulp.series('authors', 'base', 'components', 'specials'));

@@ -2,15 +2,6 @@
   "name": "@ahdcreative/ffixivta-theme-child",
   "version": "1.0.0",
   "description": "child theme for ffxivita website",
-  "scripts": {
-    "check": "prettier --check .",
-    "fix": "prettier --write .",
-    "lint": "eslint ."
-  },
-  "engines": {
-    "node": ">=v10.24.1",
-    "npm": ">=6.11.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FFXIVITA/hello-theme-ffxivita-child.git"
@@ -20,59 +11,17 @@
   "bugs": {
     "url": "https://github.com/ffxivita/hello-theme-ffxivita-child/issues"
   },
-  "homepage": "https://github.com/ffxivita/hello-theme-ffxivita-child#readme",
-  "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": ">=2.34.0",
-    "@typescript-eslint/parser": ">=2.34.0",
-    "eslint": ">=7.32.0",
-    "eslint-config-prettier": ">=8.5.0",
-    "eslint-plugin-import": ">=2.26.0",
-    "eslint-plugin-react": ">=7.31.7",
-    "eslint-plugin-react-hooks": ">=4.6.0",
-    "prettier": ">=2.7.1",
-    "typescript": ">=3.9.3"
-  },
-  "peerDependenciesMeta": {
-    "@typescript-eslint/eslint-plugin": {
-      "optional": true
-    },
-    "@typescript-eslint/parser": {
-      "optional": true
-    },
-    "eslint": {
-      "optional": false
-    },
-    "eslint-config-prettier": {
-      "optional": true
-    },
-    "eslint-plugin-import": {
-      "optional": false
-    },
-    "eslint-plugin-prettier": {
-      "optional": true
-    },
-    "eslint-plugin-react": {
-      "optional": true
-    },
-    "eslint-plugin-react-hooks": {
-      "optional": true
-    },
-    "prettier": {
-      "optional": true
-    },
-    "typescript": {
-      "optional": true
-    }
-  },
+
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "typescript": "^4.8.2",
+    "@ahdcreative/prettier-config-ahd": "^1.0.6",
+    "@ahdcreative/eslint-config-ahd": "^1.0.8",
+    "@ahdcreative/stylelint-config-ahd": "^1.0.3",
     "eslint": "8.23.0",
-    "eslint-config-ahd": "^1.0.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-import": "2.26.0",
-    "npm-run-all": "4.1.5",
+    "jest": "28.1.3",
     "prettier": "2.7.1",
-    "prettier-config-ahd": "^1.0.2",
-    "typescript": "4.8.2"
+    "stylelint": "14.11.0"
   },
   "dependencies": {
     "browser-sync": "2.27.10",
@@ -91,5 +40,16 @@
   },
   "files": [
     "*.js"
-  ]
+  ],
+  "scripts": {
+    "format": "prettier --cache --write '**/*.{js,md,css,scss,yaml,yml,json}'",
+    "lint:format": "prettier --cache --check '**/*.{js,md,css,scss,yaml,yml,json}'",
+    "lint:js": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache ./ --max-warnings 0 --report-unused-disable-directives",
+    "lint:readme": "node write-rules.js --check",
+    "lint": "npm run lint:format && npm run lint:js && npm run lint:readme",
+    "preflight": "npm run format && npm run lint && npm run test",
+    "test": "jest",
+    "write-rules": "node write-rules.js",
+    "print-config": "stylelint --print-config .stylelintrc"
+  }
 }
