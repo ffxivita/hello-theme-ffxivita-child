@@ -2,17 +2,16 @@ name: Priscilla 🎀
 
 on:
   #schedule:
-    #- cron: "0 0 * * 1-5"
+  #- cron: "0 0 * * 1-5"
   workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [ 16.x ]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:

@@ -1,0 +1,10 @@
+{
+  "extends": "@ahdcreative/stylelint-config-ahd",
+  "rules": {
+    "declaration-no-important": null,
+    "no-descending-specificity": null,
+    "property-disallowed-list": null,
+    "scale-unlimited/declaration-strict-value": null,
+    "scss/at-extend-no-missing-placeholder": null
+  }
+}

@@ -10,7 +10,7 @@
     -webkit-box-flex: 0 !important;
     -ms-flex: 0 1 22em !important;
     flex: 0 1 22em !important;
-    margin: .5rem !important;
+    margin: 0.5rem !important;
     padding: 1em !important;
     display: -webkit-box !important;
     display: -ms-flexbox !important;
@@ -21,26 +21,27 @@
   .author-avatar {
     width: 6em !important;
     height: auto !important;
-    padding: .5em !important;
+    padding: 0.5em !important;
 
     img {
       border-radius: 50% !important;
     }
   }
   .author-details-name {
-    font-family: Dragon Fire, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, "Droid Serif", Times, "Source Serif Pro", serif;
-    letter-spacing: .1em !important;
+    font-family: Dragon Fire, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, 'Droid Serif', Times,
+      'Source Serif Pro', serif;
+    letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
   }
 
   .author-details-character {
     display: block !important;
-    font-size: .8em !important;
+    font-size: 0.8em !important;
   }
 }
 .xivita-author-social {
   font-size: 1.35em !important;
-  margin-top: .5rem !important;
+  margin-top: 0.5rem !important;
 }
 /*! Box */
 .icon-authorsocial {
@@ -52,10 +53,10 @@
   -webkit-box-align: center !important;
   -ms-flex-align: center !important;
   align-items: center !important;
-  margin: .01em !important;
-  padding: .3em !important;
+  margin: 0.01em !important;
+  padding: 0.3em !important;
   background-color: #f6c011 !important;
-  border-radius: .5em !important;
+  border-radius: 0.5em !important;
   height: 32px !important;
 
   svg {
@@ -86,10 +87,10 @@
   -webkit-box-align: center !important;
   -ms-flex-align: center !important;
   align-items: center !important;
-  margin: .01em !important;
-  padding: .3em !important;
+  margin: 0.01em !important;
+  padding: 0.3em !important;
   background-color: #f6c011 !important;
-  border-radius: .5em !important;
+  border-radius: 0.5em !important;
   height: 32px !important;
 
   svg {
@@ -100,12 +101,17 @@
   }
 }
 
-.pp-multiple-authors-wrapper .avatar, multiple-authors-target-shortcode .avatar, pp-multiple-authors-layout-boxed .avatar, .pp-multiple-authors-wrapper .photo, multiple-authors-target-shortcode .photo, pp-multiple-authors-layout-boxed .photo {
+.pp-multiple-authors-wrapper .avatar,
+multiple-authors-target-shortcode .avatar,
+pp-multiple-authors-layout-boxed .avatar,
+.pp-multiple-authors-wrapper .photo,
+multiple-authors-target-shortcode .photo,
+pp-multiple-authors-layout-boxed .photo {
   position: static !important;
   float: left !important;
   margin-right: 1em !important;
   width: 80px !important;
   height: 80px !important;
   min-height: 80px !important;
-  border-radius: .5em !important;
+  border-radius: 0.5em !important;
 }

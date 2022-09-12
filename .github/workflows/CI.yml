@@ -1,0 +1,42 @@
+name: Check
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Cache node_modules
+        id: cache-node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ matrix.os }}-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
+
+      - name: npm ci
+        if: steps.cache-node_modules.outputs.cache-hit != 'true'
+        run: npm ci --no-audit
+
+      - name: ESLint
+        run: npx --no-install eslint .
+
+      - name: Prettier
+        run: npx --no-install prettier --check .
+
+      - name: Preflight
+        run: npm run preflight

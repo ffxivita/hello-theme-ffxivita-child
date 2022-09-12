@@ -1,5 +1,4 @@
 {
-  "extends": ["@ahdcreative/eslint-config-ahd"],
-  "rules": {
-  }
+  "extends": ["@ahdcreative/eslint-config-ahd", "prettier"],
+  "rules": {}
 }
